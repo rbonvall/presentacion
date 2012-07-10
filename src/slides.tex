@@ -3,6 +3,29 @@
 \includegraphics[width=0.7\textwidth]{simple_feedforward_network}
 \end{frame}
 
+
+\begin{frame}
+\frametitle{State of hidden neurons}
+\[
+  \eta_{i} =
+  \Phi \left(
+    \sum_{j=1}^{n}
+    w_{i,j}\,x_j + \text{bias}_{i,1}
+  \right),
+\]
+\end{frame}
+
+\begin{frame}
+\frametitle{State of output neurons}
+\[
+  \gamma_{i} =
+  \Phi\left(
+    \sum_{j=1}^{h}
+    \delta_{i,j}\,\eta_i + \text{bias}_{i,2}
+  \right),
+\]
+\end{frame}
+
 \begin{frame}
     \frametitle{Input-hidden weights}
   \[
@@ -32,29 +55,6 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{State of hidden neurons}
-\[
-  \eta_{i} =
-  \Phi \left(
-    \sum_{j=1}^{n}
-    w_{i,j}\,x_j + \text{bias}_{i,1}
-  \right),
-\]
-\end{frame}
-
-\begin{frame}
-\frametitle{State of output neurons}
-\[
-  \gamma_{i} =
-  \Phi\left(
-    \sum_{j=1}^{h}
-    \delta_{i,j}\,\eta_i + \text{bias}_{i,2}
-  \right),
-\]
-\end{frame}
-
-
-\begin{frame}
 \frametitle{Arquitecture of the solution}
 \includegraphics[width=0.7\textwidth]{arq}
 \end{frame}
@@ -73,7 +73,7 @@
 \begin{frame}
       \frametitle{Takeaways}
 \begin{itemize}
-\item Activation function time is negligible.
+\item Activation function time is negligible (~2\%).
 \item It is not worth the effort to integrate 4 operations into one kernel.
 \item Only fine tuning needed: keep occupancy high.
 \item Separation into simple components makes testing easier.
