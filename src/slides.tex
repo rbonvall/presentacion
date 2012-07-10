@@ -53,17 +53,33 @@
 \]
 \end{frame}
 
+
 \begin{frame}
 \frametitle{Arquitecture of the solution}
 \includegraphics[width=0.7\textwidth]{arq}
-
 \end{frame}
-
-
-
 
 
 \begin{frame}
       \frametitle{CUBLAS}
       \lstinputlisting{src/cublas.cu}
 \end{frame}
+
+\begin{frame}
+      \frametitle{CUDA kernels}
+      \lstinputlisting{src/kernels.cu}
+\end{frame}
+
+\begin{frame}
+      \frametitle{Takeaways}
+\begin{itemize}
+\item Activation function time is negligible.
+\item It is not worth the effort to integrate 4 operations into one kernel.
+\item Only fine tuning needed: keep occupancy high.
+\item Separation into simple components makes testing easier.
+\item Hard limit met easily by the GPU, not by the CPU.
+\end{itemize}
+\end{frame}
+
+
+
