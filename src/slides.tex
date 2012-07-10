@@ -4,6 +4,65 @@
 \end{frame}
 
 \begin{frame}
+    \frametitle{Input-hidden weights}
+  \[
+    W_{h \times {n+1}} =
+    \left[
+      \begin{array}{ccc|c}
+        w_{1, 1} & \cdots & w_{1, n} & w_{1, n+1} \\
+        \vdots   & \ddots & \vdots   & \vdots     \\
+        w_{h, 1} & \cdots & w_{h, n} & w_{h, n+1}
+      \end{array}
+    \right],
+  \]
+\end{frame}
+
+\begin{frame}
+    \frametitle{Hidden-output weights}
+  \[
+    \Delta_{m \times h+1} =
+    \left[
+      \begin{array}{ccc|c}
+        \delta_{1,1} & \cdots & \delta_{1,h} & \delta_{1,h+1}\\
+        \vdots & \ddots &  \vdots & \vdots\\
+        \delta_{m,1} & \cdots & \delta_{m,h} &\delta_{m,h+1}
+      \end{array}
+    \right],
+  \]
+\end{frame}
+
+\begin{frame}
+\frametitle{State of hidden neurons}
+\[
+  \eta_{i} =
+  \Phi \left(
+    \sum_{j=1}^{n}
+    w_{i,j}\,x_j + \text{bias}_{i,1}
+  \right),
+\]
+\end{frame}
+
+\begin{frame}
+\frametitle{State of output neurons}
+\[
+  \gamma_{i} =
+  \Phi\left(
+    \sum_{j=1}^{h}
+    \delta_{i,j}\,\eta_i + \text{bias}_{i,2}
+  \right),
+\]
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+
+\end{frame}
+
+
+
+
+
+\begin{frame}
       \frametitle{CUBLAS}
       \lstinputlisting{src/cublas.cu}
 \end{frame}
