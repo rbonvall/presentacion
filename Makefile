@@ -1,18 +1,14 @@
-SRC=presentacionReuna
+TEXFILES = $(wildcard *.tex)
+PDFFILES = $(TEXFILES:.tex=.pdf)
 
-all:
-	@rubber --pdf $(SRC)
-	@mkdir -p bin
-	@mv $(SRC).pdf bin/
+all: pdf
 
-x:
-	okular bin/$(SRC).pdf &> /dev/null &
+pdf: $(PDFFILES)
 
+%.pdf: %.tex
+	@rubber --pdf $<
 clean:
-	@echo "limpiando..."
-	@rubber --clean $(SRC)
+	@rubber --clean --pdf $(TEXFILES:.tex=)
 
-distclean: clean
-	@ echo "borrando PDF..."
-	@rubber --clean --pdf $(SRC)
-	@rm -rf bin/
+.PHONY: pdf clean all
+
